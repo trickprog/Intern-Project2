@@ -1,27 +1,42 @@
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import './App.css';
-import './style.css'
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from 'react-router-dom';
-import Login from './NEW PROJ/Login';
-import Signup from './NEW PROJ/Signup';
 
+import Navbar from './Components/Navbar'
+import Header from './Components/Header'
+import Overview from './Components/Overview';
+import Order_placed from './Components/Order_placed';
+import Guide from './Components/Guide';
+import Travellers from './Components/Traveller';
+import GuideDetails from './Components/GuideDetails';
+// import Hook from './Hook'
 
 function App() {
+
+
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route exact path='/' element={< Login />}></Route>
-          <Route exact path='/Login' element={< Login />}></Route>
-          <Route exact path='/Signup' element={< Signup />}></Route>
-        </Routes>
-      </Router>
+    <div className='App'>
+      <div className='flex'>
+        <div className=' bg-[#363740]'><Navbar /></div>
+        <div className='w-full'>
+          <Header />
+          <Router>
+            <Routes>
+              <Route exact path='/' element={<Overview />} />
+              <Route exact path='/Orders' element={<Order_placed />} />
+              <Route exact path='/Guides' element={<Guide />} />
+              <Route exact path='/Travellers' element={<Travellers />} />
+            </Routes>
+          </Router>
+        </div>
+      </div>
+
+
+      {/* <GuideDetails/> */}
 
     </div>
   );
